@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#d32f2f">
-<title>santhosh Matrimony - Find Your Life Partner</title>
+<title>Marry me - Find Your Life Partner</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
@@ -29,10 +29,13 @@
 body {
     background: #f5f5f5;
     font-family: 'Poppins', sans-serif;
-    padding-bottom: 80px;
+    padding-top: 64px;
+    padding-bottom: 20px;
     overflow-x: hidden;
     width: 100%;
 }
+@media (max-width: 640px) { body { padding-top: 58px; } }
+body.no-topnav { padding-top: 0; }
 
 .section {
     display: none;
@@ -47,9 +50,8 @@ body {
     background: linear-gradient(135deg, var(--primary) 0%, #b71c1c 100%);
     color: white;
     padding: 15px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: relative;
+    z-index: 10;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -137,95 +139,319 @@ body {
     color: white;
 }
 
-/* PROFILE CARDS */
+/* PREMIUM PROFILE CARDS */
 .profile-card {
-    background: white;
-    border-radius: 12px;
+    position: relative;
+    background: #fff;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(20, 20, 43, 0.08), 0 2px 6px rgba(211,47,47,0.04);
+    transition: transform 0.35s cubic-bezier(.2,.9,.3,1), box-shadow 0.35s ease;
+    margin-bottom: 24px;
+    border: 1px solid rgba(211,47,47,0.06);
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd54f 0%, #d32f2f 50%, #ffd54f 100%);
+    z-index: 3;
 }
 
 .profile-card:hover {
-    box-shadow: 0 8px 25px rgba(211,47,47,0.15);
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 22px 50px rgba(211,47,47,0.22), 0 6px 14px rgba(0,0,0,0.08);
 }
 
 .profile-image {
     position: relative;
-    height: 250px;
+    height: 300px;
     overflow: hidden;
-    background: #f0f0f0;
+    background: linear-gradient(135deg, #fce4ec 0%, #fff3e0 100%);
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.profile-card:hover .profile-image img {
+    transform: scale(1.08);
+}
+
+.profile-image::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 55%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+    pointer-events: none;
 }
 
 .profile-badge {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--secondary);
-    color: #000;
-    padding: 5px 12px;
-    border-radius: 20px;
+    top: 14px;
+    right: 14px;
+    background: linear-gradient(135deg, #ffd54f 0%, #ffb300 100%);
+    color: #4a2c00;
+    padding: 6px 14px;
+    border-radius: 30px;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 12px rgba(255,179,0,0.4);
+    z-index: 2;
+}
+
+.profile-verified {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(255,255,255,0.95);
+    color: #1976d2;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+}
+
+.profile-match {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background: linear-gradient(135deg, rgba(211,47,47,0.95), rgba(183,28,28,0.95));
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(211,47,47,0.45);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+}
+
+.profile-online-dot {
+    position: absolute;
+    bottom: 16px;
+    right: 14px;
+    width: 12px;
+    height: 12px;
+    background: #4caf50;
+    border: 2.5px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(76,175,80,0.25);
+    z-index: 2;
 }
 
 .profile-info {
-    padding: 15px;
+    padding: 18px 18px 16px;
+    background: linear-gradient(180deg, #ffffff 0%, #fffaf5 100%);
 }
 
 .profile-name {
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 5px;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: -0.2px;
+}
+
+.profile-name .premium-crown {
+    color: #ffb300;
+    font-size: 14px;
+}
+
+.profile-tagline {
+    font-size: 12px;
+    color: #d32f2f;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
 }
 
 .profile-details {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 12px;
+    display: grid;
+    gap: 7px;
+}
+
+.profile-details .detail-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-details .detail-row i {
+    width: 16px;
+    color: #d32f2f;
     font-size: 12px;
-    color: #888;
-    margin-bottom: 10px;
 }
 
 .profile-actions {
     display: flex;
     gap: 10px;
-    margin-top: 12px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(211,47,47,0.15);
 }
 
 .btn-icon {
     flex: 1;
-    padding: 8px;
-    border: 2px solid #e0e0e0;
-    background: white;
-    border-radius: 8px;
+    padding: 10px;
+    border: 1.5px solid rgba(211,47,47,0.25);
+    background: #fff;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 12px;
-    font-weight: 600;
-    transition: all 0.2s;
-    min-height: 40px;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    min-height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 6px;
+    color: #d32f2f;
+    letter-spacing: 0.3px;
 }
 
 .btn-icon:hover {
-    background: var(--primary);
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
     color: white;
-    border-color: var(--primary);
+    border-color: transparent;
+    box-shadow: 0 6px 16px rgba(211,47,47,0.35);
+    transform: translateY(-1px);
 }
 
 .btn-icon.liked {
-    background: var(--primary);
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
     color: white;
-    border-color: var(--primary);
+    border-color: transparent;
+    box-shadow: 0 6px 16px rgba(211,47,47,0.35);
+}
+
+/* HERO / WELCOME BANNER */
+.home-hero {
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 60%, #8e0000 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(211,47,47,0.25);
+}
+
+.home-hero::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(255,213,79,0.25), transparent 70%);
+    border-radius: 50%;
+}
+
+.home-hero::after {
+    content: "❦";
+    position: absolute;
+    bottom: -20px;
+    right: 15px;
+    font-size: 120px;
+    color: rgba(255,255,255,0.06);
+    pointer-events: none;
+}
+
+.home-hero h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    letter-spacing: -0.3px;
+    position: relative;
+}
+
+.home-hero p {
+    font-size: 13px;
+    opacity: 0.9;
+    margin: 0 0 14px;
+    position: relative;
+}
+
+.home-hero-stats {
+    display: flex;
+    gap: 18px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.home-hero-stat {
+    background: rgba(255,255,255,0.13);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 12px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.home-hero-stat strong {
+    display: block;
+    font-size: 17px;
+    color: #ffd54f;
+    font-weight: 800;
+}
+
+/* SECTION TITLE */
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 4px 16px;
+}
+
+.section-title h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title h4::before {
+    content: "";
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(180deg, #d32f2f, #ffd54f);
+    border-radius: 4px;
+}
+
+.section-title .view-all {
+    font-size: 12px;
+    color: #d32f2f;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Button styling for user profile */
@@ -243,13 +469,50 @@ body {
     border: none;
 }
 
-/* FILTER SECTION */
+/* PREMIUM FILTER SECTION */
 .filter-section {
-    background: white;
-    padding: 15px;
+    background: #fff;
+    padding: 18px 20px;
+    border-radius: 16px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 24px rgba(20,20,43,0.06);
+    border: 1px solid rgba(211,47,47,0.08);
+    position: relative;
+}
+
+.filter-section::before {
+    content: "\f0b0";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    box-shadow: 0 4px 12px rgba(211,47,47,0.35);
+}
+
+.filter-section .form-control {
+    border: 1.5px solid #ffe0e0;
     border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 11px 14px;
+    font-size: 13px;
+    background: #fffafa;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.filter-section .form-control:focus {
+    border-color: #d32f2f;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(211,47,47,0.08);
 }
 
 .filter-section .row {
@@ -504,47 +767,89 @@ body {
     color: #000;
 }
 
-/* BOTTOM NAV */
+/* TOP NAV (formerly bottom nav — moved to top) */
 .bottom-nav {
     position: fixed;
-    bottom: 0;
+    top: 0;
+    left: 0;
     width: 100%;
-    background: white;
+    background: linear-gradient(135deg, var(--primary) 0%, #b71c1c 100%);
     display: flex;
-    justify-content: space-around;
-    padding: 8px 0;
-    box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
-    z-index: 99;
+    align-items: center;
+    padding: 0 24px;
+    min-height: 64px;
+    box-shadow: 0 4px 18px rgba(139,0,0,0.25);
+    z-index: 200;
+}
+
+.bottom-nav .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+    margin-right: auto;
+    white-space: nowrap;
+}
+
+.bottom-nav .nav-brand i {
+    color: #ffd54f;
+    font-size: 22px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.bottom-nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .bottom-nav button {
-    background: none;
+    background: transparent;
     border: none;
-    flex: 1;
-    padding: 12px;
-    font-size: 12px;
+    padding: 8px 16px;
+    font-size: 13px;
     font-weight: 600;
-    color: #999;
+    color: rgba(255,255,255,0.78);
     cursor: pointer;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 5px;
-    transition: all 0.2s;
-    min-height: 50px;
-    justify-content: center;
+    gap: 7px;
+    transition: all 0.25s ease;
+    border-radius: 10px;
+    min-height: 40px;
+    white-space: nowrap;
 }
 
 .bottom-nav button i {
-    font-size: 20px;
-}
-
-.bottom-nav button.active {
-    color: var(--primary);
+    font-size: 14px;
 }
 
 .bottom-nav button:hover {
-    color: var(--primary);
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+}
+
+.bottom-nav button.active {
+    color: #4a2c00;
+    background: linear-gradient(135deg, #ffd54f, #ffb300);
+    box-shadow: 0 4px 14px rgba(255,179,0,0.4);
+}
+
+.bottom-nav button.active i {
+    color: #4a2c00;
+}
+
+@media (max-width: 640px) {
+    .bottom-nav { padding: 0 12px; min-height: 58px; }
+    .bottom-nav .nav-brand { font-size: 15px; }
+    .bottom-nav .nav-brand span { display: none; }
+    .bottom-nav button { padding: 7px 10px; font-size: 11px; }
+    .bottom-nav button span { display: none; }
+    .bottom-nav button i { font-size: 16px; }
 }
 
 /* SETTINGS */
@@ -1269,187 +1574,496 @@ body {
     </div>
 </div>
 
-<!-- TOP HEADER (Shown after login) -->
-<div id="topHeader" class="top-header" style="display:none;">
-    <div class="d-flex justify-content-between align-items-center">
-        <div>
-            <h2><i class="fas fa-heart"></i> santhosh Matrimony</h2>
-        </div>
-        <div>
-            <span class="badge" id="userStatus">Premium</span>
-        </div>
-    </div>
-</div>
-
 <!-- PROFILE CREATE PAGE -->
 <div id="profilePage" class="section">
-    <div id="topHeader" class="top-header">
-        <h2>Create Your Profile</h2>
-    </div>
-    
+
     <div class="main-container">
         <div class="form-section">
-            <h4><i class="fas fa-user-circle"></i> Basic Information</h4>
-            
+
+
+            <!-- ============ 1. PROFILE PHOTOGRAPHS ============ -->
+            <h4><i class="fas fa-camera"></i> Profile Photographs</h4>
+            <p style="font-size:13px;color:#666;margin:6px 0 12px;font-style:italic;">Upload up to 3 clear face photos. Max 5MB each.</p>
             <div class="input-group-icon">
-                <i class="fas fa-user"></i>
-                <input type="text" id="name" class="form-control" placeholder="Full Name">
+                <i class="fas fa-camera"></i>
+                <input type="file" id="photos" accept="image/*" multiple class="form-control">
             </div>
-            
-            <div class="input-group-icon">
-                <i class="fas fa-phone"></i>
-                <input type="tel" id="pphone" class="form-control" placeholder="Phone Number">
-            </div>
-            
-            <div class="input-group-icon">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="email" class="form-control" placeholder="Email Address">
-            </div>
-            
+            <div id="photoPreview" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-top: 15px;"></div>
+
+            <h4 style="margin-top: 25px;"><i class="fas fa-scroll"></i> Horoscope Photos (Rasi / Amsam)</h4>
             <div class="row">
                 <div class="col-6">
-                    <label class="form-group-title">Gender</label>
+                    <label class="form-group-title">Rasi Chart</label>
+                    <input type="file" id="rasiPhoto" accept="image/*" class="form-control">
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Amsam Chart</label>
+                    <input type="file" id="amsamPhoto" accept="image/*" class="form-control">
+                </div>
+            </div>
+
+            <!-- ============ 2. PERSONAL INFORMATION ============ -->
+            <h4 style="margin-top: 25px;"><i class="fas fa-user-circle"></i> Personal Information</h4>
+
+            <div class="input-group-icon">
+                <i class="fas fa-user"></i>
+                <input type="text" id="name" class="form-control" placeholder="Full Name *">
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Gender *</label>
                     <select id="gender" class="form-control">
-                        <option>Select Gender</option>
+                        <option value="">-Select-</option>
                         <option>Male</option>
                         <option>Female</option>
                     </select>
                 </div>
                 <div class="col-6">
-                    <label class="form-group-title">Date of Birth</label>
+                    <label class="form-group-title">Date of Birth *</label>
                     <input type="date" id="dob" class="form-control">
                 </div>
             </div>
-            
-            <h4 style="margin-top: 25px;"><i class="fas fa-file-alt"></i> Personal Details</h4>
-            
+
+            <label class="form-group-title" style="margin-top:10px;">Time of Birth</label>
             <div class="row">
-                <div class="col-6">
-                    <label class="form-group-title">Height</label>
-                    <select id="height" class="form-control">
-                        <option>Select Height</option>
-                        <option>4'6"</option>
-                        <option>4'8"</option>
-                        <option>4'10"</option>
-                        <option>5'0"</option>
-                        <option>5'2"</option>
-                        <option>5'4"</option>
-                        <option>5'6"</option>
-                        <option>5'8"</option>
-                        <option>5'10"</option>
-                        <option>6'0"</option>
+                <div class="col-4">
+                    <select id="birthHour" class="form-control">
+                        <option value="">Hour</option>
+                        <option>00</option><option>01</option><option>02</option><option>03</option>
+                        <option>04</option><option>05</option><option>06</option><option>07</option>
+                        <option>08</option><option>09</option><option>10</option><option>11</option>
+                        <option>12</option><option>13</option><option>14</option><option>15</option>
+                        <option>16</option><option>17</option><option>18</option><option>19</option>
+                        <option>20</option><option>21</option><option>22</option><option>23</option>
                     </select>
                 </div>
-                <div class="col-6">
-                    <label class="form-group-title">Complexion</label>
-                    <select id="complexion" class="form-control">
-                        <option>Select Complexion</option>
-                        <option>Very Fair</option>
-                        <option>Fair</option>
-                        <option>Wheatish</option>
-                        <option>Wheatish Brown</option>
-                        <option>Dark</option>
+                <div class="col-4">
+                    <select id="birthMin" class="form-control">
+                        <option value="">Minute</option>
+                        <option>00</option><option>15</option><option>30</option><option>45</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <select id="birthAmPm" class="form-control">
+                        <option>AM</option>
+                        <option>PM</option>
                     </select>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-6">
-                    <label class="form-group-title">Religion</label>
-                    <select id="religion" class="form-control">
-                        <option>Select Religion</option>
-                        <option>Hindu</option>
-                        <option>Christian</option>
-                        <option>Muslim</option>
-                        <option>Sikh</option>
-                        <option>Buddhist</option>
-                    </select>
+                    <label class="form-group-title">Place of Birth *</label>
+                    <input type="text" id="placeBirth" class="form-control" placeholder="Please specify">
                 </div>
                 <div class="col-6">
-                    <label class="form-group-title">Caste</label>
-                    <input type="text" id="caste" class="form-control" placeholder="Caste">
+                    <label class="form-group-title">Nativity *</label>
+                    <input type="text" id="nativity" class="form-control" placeholder="Please specify">
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-6">
-                    <label class="form-group-title">Mother Tongue</label>
+                    <label class="form-group-title">Mother Tongue *</label>
                     <select id="mother_tongue" class="form-control">
-                        <option>Select Language</option>
+                        <option value="">Select</option>
                         <option>Tamil</option>
                         <option>Telugu</option>
                         <option>Kannada</option>
+                        <option>Malayalam</option>
                         <option>Hindi</option>
+                        <option>Marathi</option>
                         <option>English</option>
                     </select>
                 </div>
                 <div class="col-6">
-                    <label class="form-group-title">Martial Status</label>
+                    <label class="form-group-title">Marital Status *</label>
                     <select id="marriage" class="form-control">
-                        <option>Select Status</option>
-                        <option>First Marriage</option>
-                        <option>Second Marriage</option>
-                        <option>Widow/Widower</option>
+                        <option>Unmarried</option>
+                        <option>Married</option>
+                        <option>Divorced</option>
+                        <option>Widowed</option>
+                        <option>Separated</option>
                     </select>
                 </div>
             </div>
-            
-            <h4 style="margin-top: 25px;"><i class="fas fa-briefcase"></i> Professional Details</h4>
-            
-            <div class="input-group-icon">
-                <i class="fas fa-graduation-cap"></i>
-                <select id="qualification" class="form-control">
-                    <option>Select Qualification</option>
-                    <option>10th Pass</option>
-                    <option>12th Pass</option>
-                    <option>Bachelor's</option>
-                    <option>Master's</option>
-                    <option>PhD</option>
-                </select>
+
+            <label class="form-group-title" style="margin-top:10px;">Additional Details</label>
+            <textarea id="others" class="form-control" rows="3" placeholder="Any additional details..." style="border:2px solid #e0e0e0;border-radius:8px;"></textarea>
+
+            <!-- ============ 3. FAMILY INFORMATION ============ -->
+            <h4 style="margin-top: 25px;"><i class="fas fa-users"></i> Family Information</h4>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Father's Name</label>
+                    <input type="text" id="fatherName" class="form-control" placeholder="Father's Name">
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Father's Occupation</label>
+                    <input type="text" id="fatherJob" class="form-control" placeholder="Occupation">
+                </div>
             </div>
-            
-            <div class="input-group-icon">
-                <i class="fas fa-briefcase"></i>
-                <select id="occupation" class="form-control">
-                    <option>Select Occupation</option>
-                    <option>Student</option>
-                    <option>Business</option>
-                    <option>IT Professional</option>
-                    <option>Engineer</option>
-                    <option>Doctor</option>
-                    <option>Teacher</option>
-                    <option>Government Employee</option>
-                    <option>Homemaker</option>
-                </select>
+            <div class="row">
+                <div class="col-12">
+                    <label class="form-group-title">Father Alive?</label>
+                    <label style="margin-right:15px;"><input type="radio" name="fatherAlive" value="yes" checked> Yes</label>
+                    <label><input type="radio" name="fatherAlive" value="no"> No</label>
+                </div>
             </div>
-            
-            <div class="input-group-icon">
-                <i class="fas fa-map-marker-alt"></i>
-                <select id="location" class="form-control">
-                    <option>Select City</option>
-                    <option>Chennai</option>
-                    <option>Bangalore</option>
-                    <option>Hyderabad</option>
-                    <option>Mumbai</option>
-                    <option>Delhi</option>
-                    <option>Pune</option>
-                    <option>Coimbatore</option>
-                </select>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Mother's Name</label>
+                    <input type="text" id="motherName" class="form-control" placeholder="Mother's Name">
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Mother's Occupation</label>
+                    <input type="text" id="motherJob" class="form-control" placeholder="Occupation">
+                </div>
             </div>
-            
-            <div class="input-group-icon">
-                <i class="fas fa-camera"></i>
-                <input type="file" id="photos" accept="image/*" multiple class="form-control" placeholder="Upload Your Photos (Max 6)">
-                <small style="color: #888; display: block; margin-top: 5px;">Upload up to 6 photos (recommended: at least 1 clear photo)</small>
+            <div class="row">
+                <div class="col-12">
+                    <label class="form-group-title">Mother Alive?</label>
+                    <label style="margin-right:15px;"><input type="radio" name="motherAlive" value="yes" checked> Yes</label>
+                    <label><input type="radio" name="motherAlive" value="no"> No</label>
+                </div>
             </div>
-            <div id="photoPreview" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; margin-top: 15px;"></div>
-            
-            <h4 style="margin-top: 25px;"><i class="fas fa-pen-fancy"></i> About Me</h4>
-            
-            <textarea id="aboutMe" class="form-control" placeholder="Tell us about yourself..." rows="4" style="border: 2px solid #e0e0e0; border-radius: 8px;"></textarea>
-            
-            <button onclick="saveProfile()" class="btn-login" style="margin-top: 25px; background: linear-gradient(135deg, var(--primary) 0%, #b71c1c 100%);">
-                <i class="fas fa-check-circle"></i> Complete Profile
+
+            <label class="form-group-title" style="margin-top:10px;">Siblings</label>
+            <div style="overflow-x:auto;border:1px solid #e0e0e0;border-radius:8px;">
+                <table style="width:100%;border-collapse:collapse;font-size:13px;">
+                    <thead>
+                        <tr style="background:linear-gradient(135deg,#d32f2f,#b71c1c);color:white;">
+                            <th style="padding:10px;text-align:left;">Status</th>
+                            <th style="padding:10px;">Elder Brother</th>
+                            <th style="padding:10px;">Younger Brother</th>
+                            <th style="padding:10px;">Elder Sister</th>
+                            <th style="padding:10px;">Younger Sister</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background:#fff8f8;">
+                            <td style="padding:8px;font-weight:600;">Married</td>
+                            <td style="padding:6px;"><input type="number" id="sibMarriedEB" min="0" max="9" class="form-control" style="text-align:center;padding:6px;"></td>
+                            <td style="padding:6px;"><input type="number" id="sibMarriedYB" min="0" max="9" class="form-control" style="text-align:center;padding:6px;"></td>
+                            <td style="padding:6px;"><input type="number" id="sibMarriedES" min="0" max="9" class="form-control" style="text-align:center;padding:6px;"></td>
+                            <td style="padding:6px;"><input type="number" id="sibMarriedYS" min="0" max="9" class="form-control" style="text-align:center;padding:6px;"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding:8px;font-weight:600;">Unmarried</td>
+                            <td style="padding:6px;"><input type="number" id="sibUnmarriedEB" min="0" max="9" class="form-control" style="text-align:center;padding:6px;"></td>
+                            <td style="padding:6px;"><input type="number" id="sibUnmarriedYB" min="0" max="9" class="form-control" style="text-align:center;padding:6px;"></td>
+                            <td style="padding:6px;"><input type="number" id="sibUnmarriedES" min="0" max="9" class="form-control" style="text-align:center;padding:6px;"></td>
+                            <td style="padding:6px;"><input type="number" id="sibUnmarriedYS" min="0" max="9" class="form-control" style="text-align:center;padding:6px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ============ 4. PHYSICAL ATTRIBUTES ============ -->
+            <h4 style="margin-top: 25px;"><i class="fas fa-child"></i> Physical Attributes</h4>
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-group-title">Height</label>
+                    <select id="height" class="form-control">
+                        <option value="">-Select-</option>
+                        <option>4'8"</option><option>4'9"</option><option>4'10"</option><option>4'11"</option>
+                        <option>5'0"</option><option>5'1"</option><option>5'2"</option><option>5'3"</option>
+                        <option>5'4"</option><option>5'5"</option><option>5'6"</option><option>5'7"</option>
+                        <option>5'8"</option><option>5'9"</option><option>5'10"</option><option>5'11"</option>
+                        <option>6'0"</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="form-group-title">Weight</label>
+                    <select id="weight" class="form-control">
+                        <option value="">-Select-</option>
+                        <option>40kg</option><option>45kg</option><option>50kg</option><option>55kg</option>
+                        <option>60kg</option><option>65kg</option><option>70kg</option><option>75kg</option>
+                        <option>80kg</option><option>85kg</option><option>90kg</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label class="form-group-title">Blood Group</label>
+                    <select id="bloodGroup" class="form-control">
+                        <option value="">-Select-</option>
+                        <option>O+</option><option>O-</option>
+                        <option>A+</option><option>A-</option>
+                        <option>B+</option><option>B-</option>
+                        <option>AB+</option><option>AB-</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Diet</label><br>
+                    <label style="margin-right:10px;"><input type="radio" name="diet" value="Vegetarian" checked> Vegetarian</label>
+                    <label style="margin-right:10px;"><input type="radio" name="diet" value="Non-Vegetarian"> Non-Vegetarian</label>
+                    <label><input type="radio" name="diet" value="Eggetarian"> Eggetarian</label>
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Disability</label><br>
+                    <label style="margin-right:15px;"><input type="radio" name="disability" value="No" checked> No</label>
+                    <label><input type="radio" name="disability" value="Yes"> Yes</label>
+                </div>
+            </div>
+
+            <label class="form-group-title" style="margin-top:10px;">Complexion</label><br>
+            <label style="margin-right:10px;"><input type="radio" name="complexion" value="Very Fair" checked> Very Fair</label>
+            <label style="margin-right:10px;"><input type="radio" name="complexion" value="Fair"> Fair</label>
+            <label style="margin-right:10px;"><input type="radio" name="complexion" value="Wheatish"> Wheatish</label>
+            <label style="margin-right:10px;"><input type="radio" name="complexion" value="Wheatish Brown"> Wheatish Brown</label>
+            <label><input type="radio" name="complexion" value="Dark"> Dark</label>
+
+            <!-- ============ 5. EDUCATION & OCCUPATION ============ -->
+            <h4 style="margin-top: 25px;"><i class="fas fa-graduation-cap"></i> Education &amp; Occupation</h4>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Qualification</label>
+                    <input type="text" id="qualification" class="form-control" placeholder="e.g., B.E, M.Sc">
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Occupation</label>
+                    <input type="text" id="job" class="form-control" placeholder="Your Occupation">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Place of Work</label>
+                    <input type="text" id="placeJob" class="form-control" placeholder="Work City">
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Monthly Income (₹)</label>
+                    <input type="text" id="incomeMonth" class="form-control" placeholder="e.g., 50000">
+                </div>
+            </div>
+
+            <!-- ============ 6. ASTROLOGY ============ -->
+            <h4 style="margin-top: 25px;"><i class="fas fa-star"></i> Astrology</h4>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Caste *</label>
+                    <select id="caste" class="form-control">
+                        <option value="">-Select-</option>
+                        <option>Adi Dravida</option>
+                        <option>Agamudayar</option>
+                        <option>Brahmin - Iyer</option>
+                        <option>Brahmin - Iyengar</option>
+                        <option>Chettiar</option>
+                        <option>Devar / Thevar</option>
+                        <option>Gounder</option>
+                        <option>Kallar</option>
+                        <option>Maravar</option>
+                        <option>Mudaliar</option>
+                        <option>Nadar</option>
+                        <option>Naicker</option>
+                        <option>Naidu</option>
+                        <option>Pillai</option>
+                        <option>Vanniyar</option>
+                        <option>Yadavar / Konar</option>
+                        <option>SC</option>
+                        <option>ST</option>
+                        <option>Inter-Caste</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Sub Caste *</label>
+                    <input type="text" id="subCaste" class="form-control" placeholder="Sub Caste">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Gothram</label>
+                    <input type="text" id="gothram" class="form-control" placeholder="Gothram">
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Star (Natchathiram)</label>
+                    <select id="star" class="form-control">
+                        <option value="">-Select-</option>
+                        <option>Ashwini</option><option>Bharani</option><option>Krittika</option>
+                        <option>Rohini</option><option>Mrigashirsha</option><option>Ardra</option>
+                        <option>Punarvasu</option><option>Pushya</option><option>Ashlesha</option>
+                        <option>Magha</option><option>Purva Phalguni</option><option>Uttara Phalguni</option>
+                        <option>Hasta</option><option>Chitra</option><option>Swati</option>
+                        <option>Vishakha</option><option>Anuradha</option><option>Jyeshtha</option>
+                        <option>Moola</option><option>Purva Ashadha</option><option>Uttara Ashadha</option>
+                        <option>Shravana</option><option>Dhanishta</option><option>Shatabhisha</option>
+                        <option>Purva Bhadrapada</option><option>Uttara Bhadrapada</option><option>Revati</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Raasi</label>
+                    <select id="raasi" class="form-control">
+                        <option value="">-Select Rasi-</option>
+                        <option>Mesham</option><option>Rishabam</option><option>Mithunam</option>
+                        <option>Kadagam</option><option>Simmam</option><option>Kanni</option>
+                        <option>Thulam</option><option>Viruchigam</option><option>Dhanusu</option>
+                        <option>Magaram</option><option>Kumbam</option><option>Meenam</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Padam</label>
+                    <select id="padam" class="form-control">
+                        <option value="">-Select Padam-</option>
+                        <option>Padam 1</option><option>Padam 2</option>
+                        <option>Padam 3</option><option>Padam 4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Laknam</label>
+                    <select id="laknam" class="form-control">
+                        <option value="">-Select Laknam-</option>
+                        <option>Mesha</option><option>Rishaba</option><option>Mithuna</option>
+                        <option>Kataka</option><option>Simha</option><option>Kanya</option>
+                        <option>Tula</option><option>Vrischika</option><option>Dhanu</option>
+                        <option>Makara</option><option>Kumbha</option><option>Meena</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Dosham</label>
+                    <select id="dosham" class="form-control">
+                        <option value="">-Select-</option>
+                        <option>No Dosham</option>
+                        <option>Mangal Dosham</option>
+                        <option>Rahu / Ketu Dosham</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ============ 7. PARTNER PREFERENCES ============ -->
+            <h4 style="margin-top: 25px;"><i class="fas fa-heart"></i> Partner Preferences</h4>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Partner Qualification</label>
+                    <input type="text" id="partnerQualification" class="form-control" placeholder="Preferred qualification">
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Partner Occupation</label>
+                    <input type="text" id="partnerJob" class="form-control" placeholder="Preferred occupation">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Job Requirement</label>
+                    <select id="partnerJobRequirement" class="form-control">
+                        <option>Must Required</option>
+                        <option selected>Optional</option>
+                        <option>Not Required</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Partner Monthly Income (₹)</label>
+                    <input type="text" id="partnerIncomeMonth" class="form-control" placeholder="Preferred income">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Age From</label>
+                    <input type="number" id="partnerAgeFrom" class="form-control" placeholder="Min" min="18" max="80">
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Age To</label>
+                    <input type="number" id="partnerAgeTo" class="form-control" placeholder="Max" min="18" max="80">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Partner Diet</label>
+                    <select id="partnerDiet" class="form-control">
+                        <option>Vegetarian</option>
+                        <option>Non-Vegetarian</option>
+                        <option>Eggetarian</option>
+                        <option>No Preference</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Horoscope Required?</label>
+                    <select id="partnerHoroscopeRequired" class="form-control">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Partner Marital Status</label>
+                    <select id="partnerMaritalStatus" class="form-control">
+                        <option>Unmarried</option>
+                        <option>Divorced</option>
+                        <option>Widowed</option>
+                        <option>Separated</option>
+                        <option>Any</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Partner Caste</label>
+                    <select id="partnerCaste" class="form-control">
+                        <option>Any</option>
+                        <option>Same</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Partner Sub Caste</label>
+                    <select id="partnerSubCaste" class="form-control">
+                        <option>Any</option>
+                        <option>Same</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Other Requirement</label>
+                    <input type="text" id="partnerOtherRequirement" class="form-control" placeholder="Any other preference">
+                </div>
+            </div>
+
+            <!-- ============ 8. ADDRESS & CONTACT ============ -->
+            <h4 style="margin-top: 25px;"><i class="fas fa-map-marker-alt"></i> Address &amp; Contact</h4>
+            <label class="form-group-title">Permanent Address</label>
+            <textarea id="permanentAddress" class="form-control" rows="2" placeholder="Permanent Address" style="border:2px solid #e0e0e0;border-radius:8px;"></textarea>
+
+            <label class="form-group-title" style="margin-top:10px;">Present Address</label>
+            <textarea id="presentAddress" class="form-control" rows="2" placeholder="Present Address" style="border:2px solid #e0e0e0;border-radius:8px;"></textarea>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-group-title">Contact Person</label>
+                    <input type="text" id="contactPerson" class="form-control" placeholder="Contact Person">
+                </div>
+                <div class="col-6">
+                    <label class="form-group-title">Contact Number *</label>
+                    <input type="tel" id="contactNumber" class="form-control" placeholder="10-digit mobile" maxlength="10">
+                </div>
+            </div>
+
+            <div class="input-group-icon">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" class="form-control" placeholder="Email Address">
+            </div>
+            <div class="input-group-icon">
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="pphone" class="form-control" placeholder="Primary Phone" maxlength="10">
+            </div>
+
+            <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:12px;margin-top:25px;">
+                <label style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#444;">
+                    <input type="checkbox" id="termsAccepted" style="margin-top:4px;">
+                    <span>I confirm that the details above are true and I accept the Terms &amp; Conditions and Privacy Policy.</span>
+                </label>
+            </div>
+
+            <button onclick="saveProfile()" class="btn-login" style="margin-top: 20px; background: linear-gradient(135deg, var(--primary) 0%, #b71c1c 100%);">
+                <i class="fas fa-check-circle"></i> Complete Registration
             </button>
         </div>
     </div>
@@ -1457,42 +2071,57 @@ body {
 
 <!-- HOME / BROWSE PROFILES -->
 <div id="homePage" class="section">
-    <div class="top-header">
-        <h2>Browse Profiles</h2>
-    </div>
-    
+
     <div class="main-container">
+
+        <!-- Premium Hero Banner -->
+        <div class="home-hero">
+            <h3>Find Your Perfect Match ✨</h3>
+            <p>Handpicked matches from Tamil Nadu's most trusted matrimony</p>
+            <div class="home-hero-stats">
+                <div class="home-hero-stat"><strong>12,480+</strong>Active Profiles</div>
+                <div class="home-hero-stat"><strong>3,200+</strong>Success Stories</div>
+                <div class="home-hero-stat"><strong>98%</strong>Verified</div>
+            </div>
+        </div>
+
+        <!-- Filter -->
         <div class="filter-section">
-            <div class="row">
+            <div class="row" style="padding-top:6px;">
                 <div class="col-6">
                     <select id="filterAge" class="form-control">
                         <option value="">All Ages</option>
-                        <option value="20-25">20-25</option>
-                        <option value="25-30">25-30</option>
-                        <option value="30-35">30-35</option>
-                        <option value="35-40">35-40</option>
+                        <option value="20-25">20 - 25 years</option>
+                        <option value="25-30">25 - 30 years</option>
+                        <option value="30-35">30 - 35 years</option>
+                        <option value="35-40">35 - 40 years</option>
                     </select>
                 </div>
                 <div class="col-6">
                     <select id="filterLocation" class="form-control">
                         <option value="">All Cities</option>
                         <option value="Chennai">Chennai</option>
+                        <option value="Coimbatore">Coimbatore</option>
+                        <option value="Madurai">Madurai</option>
                         <option value="Bangalore">Bangalore</option>
                         <option value="Hyderabad">Hyderabad</option>
                     </select>
                 </div>
             </div>
         </div>
-        
+
+        <!-- Section title -->
+        <div class="section-title">
+            <h4>Recommended For You</h4>
+            <span class="view-all">View All <i class="fas fa-arrow-right" style="font-size:10px;"></i></span>
+        </div>
+
         <div class="row" id="allProfiles"></div>
     </div>
 </div>
 
 <!-- MY PROFILE & LIKES -->
 <div id="myPage" class="section">
-    <div class="top-header">
-        <h2>My Profile</h2>
-    </div>
     
     <div class="main-container">
         <!-- USER'S OWN PROFILE CARD -->
@@ -1543,9 +2172,6 @@ body {
 
 <!-- MEMBERSHIP & PAYMENT -->
 <div id="paymentsPage" class="section">
-    <div class="top-header">
-        <h2>Membership Plans</h2>
-    </div>
     
     <div class="main-container">
         <div style="background: white; padding: 20px; border-radius: 12px; margin-bottom: 25px; text-align: center;">
@@ -1617,9 +2243,6 @@ body {
 
 <!-- SETTINGS -->
 <div id="settingsPage" class="section">
-    <div class="top-header">
-        <h2>Settings</h2>
-    </div>
     
     <div class="main-container">
         <h5 style="color: var(--primary); font-weight: 700; margin-bottom: 15px;">
@@ -1702,22 +2325,28 @@ body {
 
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav" id="bottomNav" style="display:none;">
-    <button onclick="showNav('homePage')" class="active nav-btn" data-page="homePage">
-        <i class="fas fa-home"></i>
-        <span>Home</span>
-    </button>
-    <button onclick="showNav('myPage')" class="nav-btn" data-page="myPage">
-        <i class="fas fa-user"></i>
-        <span>My Profile</span>
-    </button>
-    <button onclick="showNav('paymentsPage')" class="nav-btn" data-page="paymentsPage">
-        <i class="fas fa-crown"></i>
-        <span>Premium</span>
-    </button>
-    <button onclick="showNav('settingsPage')" class="nav-btn" data-page="settingsPage">
-        <i class="fas fa-cog"></i>
-        <span>Settings</span>
-    </button>
+    <div class="nav-brand">
+        <i class="fas fa-heart"></i>
+        <span>Santhosh Matrimony</span>
+    </div>
+    <div class="nav-links">
+        <button onclick="showNav('homePage')" class="active nav-btn" data-page="homePage">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </button>
+        <button onclick="showNav('myPage')" class="nav-btn" data-page="myPage">
+            <i class="fas fa-user"></i>
+            <span>My Profile</span>
+        </button>
+        <button onclick="showNav('paymentsPage')" class="nav-btn" data-page="paymentsPage">
+            <i class="fas fa-crown"></i>
+            <span>Premium</span>
+        </button>
+        <button onclick="showNav('settingsPage')" class="nav-btn" data-page="settingsPage">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+        </button>
+    </div>
 </div>
 
 <script>
@@ -1739,9 +2368,12 @@ let userProfile = null;
 function showPage(id) {
     document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
-    
-    if (id !== 'loginPage') {
-        document.getElementById("topHeader").style.display = "block";
+
+    if (id === 'loginPage') {
+        document.body.classList.add('no-topnav');
+        document.getElementById("bottomNav").style.display = "none";
+    } else {
+        document.body.classList.remove('no-topnav');
         document.getElementById("bottomNav").style.display = "flex";
     }
     
@@ -1844,22 +2476,36 @@ function saveProfile() {
 function loadProfiles() {
     let container = document.getElementById("allProfiles");
     container.innerHTML = "";
-    
-    sampleProfiles.forEach(p => {
+
+    sampleProfiles.forEach((p, idx) => {
         let isLiked = likedProfiles.includes(p.id);
+        // deterministic "match %" and online flag based on id
+        let matchPct = 82 + ((p.id * 7) % 16);
+        let isOnline = (p.id % 2) === 0;
+        let isPremium = (p.id % 3) === 0;
+        let fallback = 'https://via.placeholder.com/600x700/d32f2f/ffffff?text=' + encodeURIComponent(p.name);
+        let img = p.image || fallback;
+
         container.innerHTML += `
             <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <div class="profile-card">
                     <div class="profile-image">
-                        <img src="${p.image || 'https://via.placeholder.com/300/d32f2f/ffffff?text=' + encodeURIComponent(p.name)}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/300/d32f2f/ffffff?text=' + encodeURIComponent('${p.name}')">
-                        <div class="profile-badge">${p.age} yrs</div>
+                        <img src="${img}" alt="${p.name}" onerror="this.src='${fallback}'">
+                        <div class="profile-verified"><i class="fas fa-check-circle"></i> Verified</div>
+                        <div class="profile-badge"><i class="fas fa-birthday-cake" style="margin-right:4px;font-size:10px;"></i>${p.age} yrs</div>
+                        <div class="profile-match"><i class="fas fa-heart"></i> ${matchPct}% Match</div>
+                        ${isOnline ? '<div class="profile-online-dot" title="Online now"></div>' : ''}
                     </div>
                     <div class="profile-info">
-                        <div class="profile-name">${p.name}</div>
+                        <div class="profile-name">
+                            ${p.name}
+                            ${isPremium ? '<i class="fas fa-crown premium-crown" title="Premium Member"></i>' : ''}
+                        </div>
+                        <div class="profile-tagline">${p.religion || 'Hindu'} • ${p.caste || 'N/A'}</div>
                         <div class="profile-details">
-                            <i class="fas fa-map-marker-alt" style="color: #d32f2f;"></i> ${p.location}<br>
-                            <i class="fas fa-graduation-cap" style="color: #d32f2f;"></i> ${p.qualification}<br>
-                            <i class="fas fa-book" style="color: #d32f2f;"></i> ${p.caste}
+                            <div class="detail-row"><i class="fas fa-map-marker-alt"></i> ${p.location}</div>
+                            <div class="detail-row"><i class="fas fa-graduation-cap"></i> ${p.qualification}</div>
+                            <div class="detail-row"><i class="fas fa-briefcase"></i> ${p.occupation || 'Professional'}</div>
                         </div>
                         <div class="profile-actions">
                             <button class="btn-icon" onclick="viewProfile(${p.id})">
@@ -2069,6 +2715,11 @@ window.addEventListener('orientationchange', function() {
 
 // Add photo preview functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Login page visible initially — hide the top nav
+    if (document.getElementById('loginPage') && document.getElementById('loginPage').classList.contains('active')) {
+        document.body.classList.add('no-topnav');
+        var bn = document.getElementById('bottomNav'); if (bn) bn.style.display = 'none';
+    }
     let photosInput = document.getElementById('photos');
     if (photosInput) {
         photosInput.addEventListener('change', function(e) {
