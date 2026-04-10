@@ -904,6 +904,165 @@ body.no-topnav { padding-top: 0; }
     left: 24px;
 }
 
+/* PROFILE DETAIL VIEW */
+.profile-detail-header {
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -20px -20px 20px -20px;
+    border-radius: 0;
+}
+
+.profile-detail-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.profile-detail-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.profile-detail-image {
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(135deg, #fce4ec 0%, #fff3e0 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-detail-info {
+    padding: 20px;
+}
+
+.profile-detail-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-detail-subtitle {
+    font-size: 14px;
+    color: #d32f2f;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.profile-detail-section {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.profile-detail-section h5 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #d32f2f;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid #ffe0e0;
+    padding-bottom: 10px;
+}
+
+.profile-detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 13px;
+}
+
+.profile-detail-row:last-child {
+    border-bottom: none;
+}
+
+.profile-detail-label {
+    font-weight: 600;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-detail-label i {
+    color: #d32f2f;
+    width: 16px;
+}
+
+.profile-detail-value {
+    color: #1a1a1a;
+    font-weight: 500;
+    text-align: right;
+}
+
+.profile-detail-actions {
+    display: flex;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+.profile-detail-actions button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-detail-back {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.btn-detail-back:hover {
+    background: #ccc;
+}
+
+.btn-detail-like {
+    background: white;
+    color: #d32f2f;
+    border: 2px solid #d32f2f;
+}
+
+.btn-detail-like:hover {
+    background: #d32f2f;
+    color: white;
+}
+
+.btn-detail-message {
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    color: white;
+}
+
+.btn-detail-message:hover {
+    opacity: 0.9;
+}
+
 /* CONTAINER */
 .main-container {
     padding: 20px;
@@ -1607,12 +1766,12 @@ body.no-topnav { padding-top: 0; }
 
             <div class="input-group-icon">
                 <i class="fas fa-user"></i>
-                <input type="text" id="name" class="form-control" placeholder="Full Name *">
+                <input type="text" id="name" class="form-control" placeholder="Full Name">
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <label class="form-group-title">Gender *</label>
+                    <label class="form-group-title">Gender</label>
                     <select id="gender" class="form-control">
                         <option value="">-Select-</option>
                         <option>Male</option>
@@ -1620,7 +1779,7 @@ body.no-topnav { padding-top: 0; }
                     </select>
                 </div>
                 <div class="col-6">
-                    <label class="form-group-title">Date of Birth *</label>
+                    <label class="form-group-title">Date of Birth</label>
                     <input type="date" id="dob" class="form-control">
                 </div>
             </div>
@@ -1654,18 +1813,18 @@ body.no-topnav { padding-top: 0; }
 
             <div class="row">
                 <div class="col-6">
-                    <label class="form-group-title">Place of Birth *</label>
+                    <label class="form-group-title">Place of Birth</label>
                     <input type="text" id="placeBirth" class="form-control" placeholder="Please specify">
                 </div>
                 <div class="col-6">
-                    <label class="form-group-title">Nativity *</label>
+                    <label class="form-group-title">Nativity</label>
                     <input type="text" id="nativity" class="form-control" placeholder="Please specify">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                    <label class="form-group-title">Mother Tongue *</label>
+                    <label class="form-group-title">Mother Tongue</label>
                     <select id="mother_tongue" class="form-control">
                         <option value="">Select</option>
                         <option>Tamil</option>
@@ -1678,7 +1837,7 @@ body.no-topnav { padding-top: 0; }
                     </select>
                 </div>
                 <div class="col-6">
-                    <label class="form-group-title">Marital Status *</label>
+                    <label class="form-group-title">Marital Status</label>
                     <select id="marriage" class="form-control">
                         <option>Unmarried</option>
                         <option>Married</option>
@@ -1845,7 +2004,7 @@ body.no-topnav { padding-top: 0; }
             <h4 style="margin-top: 25px;"><i class="fas fa-star"></i> Astrology</h4>
             <div class="row">
                 <div class="col-6">
-                    <label class="form-group-title">Caste *</label>
+                    <label class="form-group-title">Caste</label>
                     <select id="caste" class="form-control">
                         <option value="">-Select-</option>
                         <option>Adi Dravida</option>
@@ -1871,7 +2030,7 @@ body.no-topnav { padding-top: 0; }
                     </select>
                 </div>
                 <div class="col-6">
-                    <label class="form-group-title">Sub Caste *</label>
+                    <label class="form-group-title">Sub Caste</label>
                     <input type="text" id="subCaste" class="form-control" placeholder="Sub Caste">
                 </div>
             </div>
@@ -2041,7 +2200,7 @@ body.no-topnav { padding-top: 0; }
                     <input type="text" id="contactPerson" class="form-control" placeholder="Contact Person">
                 </div>
                 <div class="col-6">
-                    <label class="form-group-title">Contact Number *</label>
+                    <label class="form-group-title">Contact Number</label>
                     <input type="tel" id="contactNumber" class="form-control" placeholder="10-digit mobile" maxlength="10">
                 </div>
             </div>
@@ -2323,6 +2482,172 @@ body.no-topnav { padding-top: 0; }
     </div>
 </div>
 
+<!-- PROFILE DETAIL VIEW -->
+<div id="profileDetailPage" class="section">
+    <div class="main-container">
+        <div class="profile-detail-header">
+            <h3 id="detailHeaderName">Profile Details</h3>
+            <button onclick="showPage('homePage')" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="profile-detail-container">
+            <div class="profile-detail-image">
+                <img id="detailImage" src="https://via.placeholder.com/400/d32f2f/ffffff?text=Profile" alt="Profile Photo">
+            </div>
+            
+            <div class="profile-detail-info">
+                <div class="profile-detail-name" id="detailName">Name Here</div>
+                <div class="profile-detail-subtitle" id="detailSubtitle">Religion • Caste</div>
+                
+                <!-- BASIC INFO -->
+                <div class="profile-detail-section">
+                    <h5><i class="fas fa-user-circle"></i> Basic Information</h5>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-birthday-cake"></i> Age</span>
+                        <span class="profile-detail-value" id="detailAge">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-venus-mars"></i> Gender</span>
+                        <span class="profile-detail-value" id="detailGender">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-map-marker-alt"></i> Location</span>
+                        <span class="profile-detail-value" id="detailLocation">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-ring"></i> Marital Status</span>
+                        <span class="profile-detail-value" id="detailMaritalStatus">-</span>
+                    </div>
+                </div>
+                
+                <!-- PHYSICAL ATTRIBUTES -->
+                <div class="profile-detail-section">
+                    <h5><i class="fas fa-child"></i> Physical Attributes</h5>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-ruler-vertical"></i> Height</span>
+                        <span class="profile-detail-value" id="detailHeight">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-weight"></i> Weight</span>
+                        <span class="profile-detail-value" id="detailWeight">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-droplet"></i> Blood Group</span>
+                        <span class="profile-detail-value" id="detailBloodGroup">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-palette"></i> Complexion</span>
+                        <span class="profile-detail-value" id="detailComplexion">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-utensils"></i> Diet</span>
+                        <span class="profile-detail-value" id="detailDiet">-</span>
+                    </div>
+                </div>
+                
+                <!-- EDUCATION & OCCUPATION -->
+                <div class="profile-detail-section">
+                    <h5><i class="fas fa-graduation-cap"></i> Education & Occupation</h5>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-diploma"></i> Qualification</span>
+                        <span class="profile-detail-value" id="detailQualification">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-briefcase"></i> Occupation</span>
+                        <span class="profile-detail-value" id="detailOccupation">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-building"></i> Place of Work</span>
+                        <span class="profile-detail-value" id="detailPlaceOfWork">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-money-bill"></i> Monthly Income</span>
+                        <span class="profile-detail-value" id="detailIncome">-</span>
+                    </div>
+                </div>
+                
+                <!-- FAMILY INFO -->
+                <div class="profile-detail-section">
+                    <h5><i class="fas fa-users"></i> Family Information</h5>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-user"></i> Father's Name</span>
+                        <span class="profile-detail-value" id="detailFatherName">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-user"></i> Mother's Name</span>
+                        <span class="profile-detail-value" id="detailMotherName">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-heart"></i> Mother Tongue</span>
+                        <span class="profile-detail-value" id="detailMotherTongue">-</span>
+                    </div>
+                </div>
+                
+                <!-- ASTROLOGY -->
+                <div class="profile-detail-section">
+                    <h5><i class="fas fa-star"></i> Astrology</h5>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-book"></i> Gothram</span>
+                        <span class="profile-detail-value" id="detailGothram">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-sun"></i> Star (Natchathiram)</span>
+                        <span class="profile-detail-value" id="detailStar">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-moon"></i> Raasi</span>
+                        <span class="profile-detail-value" id="detailRaasi">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-om"></i> Dosham</span>
+                        <span class="profile-detail-value" id="detailDosham">-</span>
+                    </div>
+                </div>
+                
+                <!-- CONTACT INFO -->
+                <div class="profile-detail-section">
+                    <h5><i class="fas fa-envelope"></i> Contact Information</h5>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-envelope"></i> Email</span>
+                        <span class="profile-detail-value" id="detailEmail">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-phone"></i> Phone</span>
+                        <span class="profile-detail-value" id="detailPhone">-</span>
+                    </div>
+                    <div class="profile-detail-row">
+                        <span class="profile-detail-label"><i class="fas fa-map-marker-alt"></i> Address</span>
+                        <span class="profile-detail-value" id="detailAddress">-</span>
+                    </div>
+                </div>
+                
+                <!-- ABOUT -->
+                <div class="profile-detail-section">
+                    <h5><i class="fas fa-info-circle"></i> About</h5>
+                    <div style="color: #555; font-size: 13px; line-height: 1.6;">
+                        <span id="detailAbout">No additional information provided</span>
+                    </div>
+                </div>
+                
+                <!-- ACTION BUTTONS -->
+                <div class="profile-detail-actions">
+                    <button class="btn-detail-back" onclick="showPage('homePage')">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn-detail-like" onclick="likeProfileFromDetail()" id="detailLikeBtn">
+                        <i class="fas fa-heart"></i> Like
+                    </button>
+                    <button class="btn-detail-message">
+                        <i class="fas fa-envelope"></i> Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- BOTTOM NAVIGATION -->
 <div class="bottom-nav" id="bottomNav" style="display:none;">
     <div class="nav-brand">
@@ -2411,114 +2736,301 @@ function login() {
     showPage("profilePage");
 }
 
-// SAVE PROFILE
+// SAVE PROFILE - UPDATED TO HANDLE EDITING
 function saveProfile() {
+    let editingId = localStorage.getItem("editingProfileId");
+    
+    // Get all form values
     let profile = {
+        id: editingId ? parseInt(editingId) : Date.now(), // Use existing ID if editing
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         phone: document.getElementById("pphone").value,
+        contactPerson: document.getElementById("contactPerson").value,
+        contactNumber: document.getElementById("contactNumber").value,
+        
+        // Personal Info
         gender: document.getElementById("gender").value,
         dob: document.getElementById("dob").value,
+        birthHour: document.getElementById("birthHour").value,
+        birthMin: document.getElementById("birthMin").value,
+        birthAmPm: document.getElementById("birthAmPm").value,
+        placeBirth: document.getElementById("placeBirth").value,
+        nativity: document.getElementById("nativity").value,
+        
+        // Physical
         height: document.getElementById("height").value,
-        complexion: document.getElementById("complexion").value,
-        religion: document.getElementById("religion").value,
-        caste: document.getElementById("caste").value,
+        weight: document.getElementById("weight").value,
+        bloodGroup: document.getElementById("bloodGroup").value,
+        complexion: document.querySelector('input[name="complexion"]:checked')?.value,
+        diet: document.querySelector('input[name="diet"]:checked')?.value,
+        disability: document.querySelector('input[name="disability"]:checked')?.value,
+        
+        // Family & Social
+        religion: "", // Not in new form, defaulting
         motherTongue: document.getElementById("mother_tongue").value,
         maritalStatus: document.getElementById("marriage").value,
+        caste: document.getElementById("caste").value,
+        subCaste: document.getElementById("subCaste").value,
+        
+        // Family Details
+        fatherName: document.getElementById("fatherName").value,
+        fatherJob: document.getElementById("fatherJob").value,
+        fatherAlive: document.querySelector('input[name="fatherAlive"]:checked')?.value,
+        motherName: document.getElementById("motherName").value,
+        motherJob: document.getElementById("motherJob").value,
+        motherAlive: document.querySelector('input[name="motherAlive"]:checked')?.value,
+        
+        // Siblings
+        siblings: {
+            marriedElderBro: document.getElementById("sibMarriedEB").value,
+            marriedYoungerBro: document.getElementById("sibMarriedYB").value,
+            marriedElderSis: document.getElementById("sibMarriedES").value,
+            marriedYoungerSis: document.getElementById("sibMarriedYS").value,
+            unmarriedElderBro: document.getElementById("sibUnmarriedEB").value,
+            unmarriedYoungerBro: document.getElementById("sibUnmarriedYB").value,
+            unmarriedElderSis: document.getElementById("sibUnmarriedES").value,
+            unmarriedYoungerSis: document.getElementById("sibUnmarriedYS").value,
+        },
+        
+        // Education & Work
         qualification: document.getElementById("qualification").value,
-        occupation: document.getElementById("occupation").value,
-        location: document.getElementById("location").value,
-        aboutMe: document.getElementById("aboutMe").value,
+        job: document.getElementById("job").value,
+        placeJob: document.getElementById("placeJob").value,
+        incomeMonth: document.getElementById("incomeMonth").value,
+        
+        // Astrology
+        gothram: document.getElementById("gothram").value,
+        star: document.getElementById("star").value,
+        raasi: document.getElementById("raasi").value,
+        padam: document.getElementById("padam").value,
+        laknam: document.getElementById("laknam").value,
+        dosham: document.getElementById("dosham").value,
+        
+        // Partner Preferences
+        partnerQualification: document.getElementById("partnerQualification").value,
+        partnerJob: document.getElementById("partnerJob").value,
+        partnerJobRequirement: document.getElementById("partnerJobRequirement").value,
+        partnerIncomeMonth: document.getElementById("partnerIncomeMonth").value,
+        partnerAgeFrom: document.getElementById("partnerAgeFrom").value,
+        partnerAgeTo: document.getElementById("partnerAgeTo").value,
+        partnerDiet: document.getElementById("partnerDiet").value,
+        partnerHoroscopeRequired: document.getElementById("partnerHoroscopeRequired").value,
+        partnerMaritalStatus: document.getElementById("partnerMaritalStatus").value,
+        partnerCaste: document.getElementById("partnerCaste").value,
+        partnerSubCaste: document.getElementById("partnerSubCaste").value,
+        partnerOtherRequirement: document.getElementById("partnerOtherRequirement").value,
+        
+        // Address
+        permanentAddress: document.getElementById("permanentAddress").value,
+        presentAddress: document.getElementById("presentAddress").value,
+        
+        // Additional
+        others: document.getElementById("others").value,
+        
         createdAt: new Date().toISOString(),
-        photos: []
+        photos: editingId ? JSON.parse(localStorage.getItem("userProfiles")).find(p => p.id === parseInt(editingId))?.photos || [] : [],
+        rasiPhoto: null,
+        amsamPhoto: null
     };
     
-    if (!profile.name || !profile.email || !profile.gender) {
-        alert("Please fill all required fields!");
-        return;
-    }
+    let photoCount = 0;
     
-    // Handle multiple photo uploads (up to 6)
+    // Handle multiple photo uploads (up to 3)
     let photoFiles = document.getElementById("photos").files;
     if (photoFiles.length > 0) {
         let filesProcessed = 0;
-        let totalFiles = Math.min(photoFiles.length, 6); // Max 6 photos
+        let totalFiles = Math.min(photoFiles.length, 3); // Max 3 photos
         
         for (let i = 0; i < totalFiles; i++) {
             let reader = new FileReader();
             reader.onload = function(e) {
                 profile.photos.push(e.target.result);
                 filesProcessed++;
+                photoCount = filesProcessed;
                 
                 if (filesProcessed === totalFiles) {
-                    // Set primary photo as first uploaded
-                    profile.photo = profile.photos[0];
-                    localStorage.setItem("profile", JSON.stringify(profile));
-                    userProfile = profile;
-                    alert("✓ Profile Completed Successfully with " + profile.photos.length + " photos!");
-                    showPage("homePage");
+                    processRasiAndAmsam();
                 }
             };
             reader.readAsDataURL(photoFiles[i]);
         }
     } else {
-        // Use default placeholder if no photo uploaded
-        profile.photo = "https://via.placeholder.com/300/d32f2f/ffffff?text=" + encodeURIComponent(profile.gender);
-        profile.photos = [profile.photo];
-        localStorage.setItem("profile", JSON.stringify(profile));
+        processRasiAndAmsam();
+    }
+    
+    function processRasiAndAmsam() {
+        let rasiFile = document.getElementById("rasiPhoto").files[0];
+        let amsamFile = document.getElementById("amsamPhoto").files[0];
+        let remaining = 0;
+        
+        if (rasiFile) remaining++;
+        if (amsamFile) remaining++;
+        
+        if (remaining === 0) {
+            completeProfileSave();
+            return;
+        }
+        
+        if (rasiFile) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                profile.rasiPhoto = e.target.result;
+                remaining--;
+                if (remaining === 0) completeProfileSave();
+            };
+            reader.readAsDataURL(rasiFile);
+        }
+        
+        if (amsamFile) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                profile.amsamPhoto = e.target.result;
+                remaining--;
+                if (remaining === 0) completeProfileSave();
+            };
+            reader.readAsDataURL(amsamFile);
+        }
+    }
+    
+    function completeProfileSave() {
+        // Set primary photo as first uploaded
+        if (profile.photos.length > 0) {
+            profile.photo = profile.photos[0];
+        } else {
+            profile.photo = "https://via.placeholder.com/300/d32f2f/ffffff?text=" + encodeURIComponent(profile.gender);
+            if (!editingId) profile.photos = [profile.photo];
+        }
+        
+        // Load existing profiles array
+        let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+        
+        if (editingId) {
+            // Update existing profile
+            let index = allProfiles.findIndex(p => p.id === parseInt(editingId));
+            if (index !== -1) {
+                allProfiles[index] = profile;
+            }
+            alert("✓ Profile Updated Successfully!");
+        } else {
+            // Add new profile to array
+            allProfiles.push(profile);
+            alert("✓ Profile " + (allProfiles.length) + " Created Successfully!");
+        }
+        
+        // Save updated array
+        localStorage.setItem("userProfiles", JSON.stringify(allProfiles));
+        
+        // Set as current profile
+        localStorage.setItem("currentProfile", JSON.stringify(profile));
         userProfile = profile;
-        alert("✓ Profile Completed Successfully!");
+        
+        // Clear editing ID
+        localStorage.removeItem("editingProfileId");
+        
+        // Clear form
+        document.querySelectorAll(".form-control").forEach(field => {
+            if (field.type !== 'file') field.value = '';
+        });
+        document.getElementById("photoPreview").innerHTML = '';
+        
         showPage("homePage");
     }
 }
 
-// LOAD PROFILES
+// LOAD PROFILES - SHOWS USER'S OWN PROFILES + SAMPLE PROFILES
 function loadProfiles() {
     let container = document.getElementById("allProfiles");
     container.innerHTML = "";
 
-    sampleProfiles.forEach((p, idx) => {
+    // Get all user's profiles
+    let allUserProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+    let combinedProfiles = [];
+    
+    // Add user's profiles first (with user badge)
+    allUserProfiles.forEach((p, idx) => {
+        combinedProfiles.push({
+            ...p,
+            isUserProfile: true,
+            orderIndex: idx
+        });
+    });
+    
+    // Add sample profiles
+    sampleProfiles.forEach((p) => {
+        combinedProfiles.push({
+            ...p,
+            isUserProfile: false
+        });
+    });
+
+    // Display all profiles
+    combinedProfiles.forEach((p, idx) => {
         let isLiked = likedProfiles.includes(p.id);
-        // deterministic "match %" and online flag based on id
+        
+        // Calculate age from DOB if available
+        let age = p.age;
+        if (p.dob && !p.age) {
+            let birthDate = new Date(p.dob);
+            let today = new Date();
+            age = today.getFullYear() - birthDate.getFullYear();
+            let monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+        }
+        
         let matchPct = 82 + ((p.id * 7) % 16);
         let isOnline = (p.id % 2) === 0;
         let isPremium = (p.id % 3) === 0;
-        let fallback = 'https://via.placeholder.com/600x700/d32f2f/ffffff?text=' + encodeURIComponent(p.name);
-        let img = p.image || fallback;
+        
+        let img = p.photo || p.image || 'https://via.placeholder.com/600x700/d32f2f/ffffff?text=' + encodeURIComponent(p.name || 'Profile');
+        let fallback = 'https://via.placeholder.com/600x700/d32f2f/ffffff?text=' + encodeURIComponent(p.name || 'Profile');
+        
+        let location = p.presentAddress ? p.presentAddress.split('\n')[0] : (p.location || 'Not specified');
+        let qualification = p.qualification || 'Professional';
+        let caste = p.caste || 'Not specified';
+        let religion = p.religion || 'Hindu';
 
-        container.innerHTML += `
+        let profileCard = `
             <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                <div class="profile-card">
+                <div class="profile-card" style="${p.isUserProfile ? 'border: 2px solid #ffd54f; background: #fffaf5;' : ''}">
                     <div class="profile-image">
                         <img src="${img}" alt="${p.name}" onerror="this.src='${fallback}'">
-                        <div class="profile-verified"><i class="fas fa-check-circle"></i> Verified</div>
-                        <div class="profile-badge"><i class="fas fa-birthday-cake" style="margin-right:4px;font-size:10px;"></i>${p.age} yrs</div>
-                        <div class="profile-match"><i class="fas fa-heart"></i> ${matchPct}% Match</div>
-                        ${isOnline ? '<div class="profile-online-dot" title="Online now"></div>' : ''}
+                        <div class="profile-verified"><i class="fas fa-check-circle"></i> ${p.isUserProfile ? 'Your Profile' : 'Verified'}</div>
+                        <div class="profile-badge">
+                            ${p.isUserProfile ? '<i class="fas fa-star" style="margin-right:4px;color:#ffd54f;"></i>Your Profile' : '<i class="fas fa-birthday-cake" style="margin-right:4px;font-size:10px;"></i>' + age + ' yrs'}
+                        </div>
+                        ${!p.isUserProfile ? '<div class="profile-match"><i class="fas fa-heart"></i> ' + matchPct + '% Match</div>' : ''}
+                        ${isOnline && !p.isUserProfile ? '<div class="profile-online-dot" title="Online now"></div>' : ''}
                     </div>
                     <div class="profile-info">
                         <div class="profile-name">
                             ${p.name}
-                            ${isPremium ? '<i class="fas fa-crown premium-crown" title="Premium Member"></i>' : ''}
+                            ${isPremium && !p.isUserProfile ? '<i class="fas fa-crown premium-crown" title="Premium Member"></i>' : ''}
+                            ${p.isUserProfile ? '<i class="fas fa-star" style="color: #ffd54f; font-size: 12px;"></i>' : ''}
                         </div>
-                        <div class="profile-tagline">${p.religion || 'Hindu'} • ${p.caste || 'N/A'}</div>
+                        <div class="profile-tagline">${religion} • ${caste}</div>
                         <div class="profile-details">
-                            <div class="detail-row"><i class="fas fa-map-marker-alt"></i> ${p.location}</div>
-                            <div class="detail-row"><i class="fas fa-graduation-cap"></i> ${p.qualification}</div>
-                            <div class="detail-row"><i class="fas fa-briefcase"></i> ${p.occupation || 'Professional'}</div>
+                            <div class="detail-row"><i class="fas fa-map-marker-alt"></i> ${location}</div>
+                            <div class="detail-row"><i class="fas fa-graduation-cap"></i> ${qualification}</div>
+                            ${p.job ? '<div class="detail-row"><i class="fas fa-briefcase"></i> ' + p.job + '</div>' : ''}
+                            ${p.isUserProfile && p.incomeMonth ? '<div class="detail-row"><i class="fas fa-money-bill"></i> ₹' + p.incomeMonth + '/mo</div>' : ''}
                         </div>
                         <div class="profile-actions">
-                            <button class="btn-icon" onclick="viewProfile(${p.id})">
-                                <i class="fas fa-eye"></i> View
-                            </button>
-                            <button class="btn-icon ${isLiked ? 'liked' : ''}" onclick="likeProfile(${p.id})">
-                                <i class="fas fa-heart"></i> ${isLiked ? 'Liked' : 'Like'}
-                            </button>
+                            ${p.isUserProfile ? 
+                                `<button class="btn-icon" onclick="editProfile(${p.id})" style="flex:1;"><i class="fas fa-edit"></i> Edit</button>
+                                 <button class="btn-icon" onclick="deleteProfile(${p.id})" style="flex:1;"><i class="fas fa-trash"></i> Delete</button>` 
+                                : 
+                                `<button class="btn-icon" style="flex:1; cursor:pointer;" onclick="viewProfile('${p.id}')"><i class="fas fa-eye"></i> View</button>
+                                 <button class="btn-icon ${isLiked ? 'liked' : ''}" style="flex:1;" onclick="likeProfile(${p.id})"><i class="fas fa-heart"></i> ${isLiked ? 'Liked' : 'Like'}</button>`
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         `;
+        container.innerHTML += profileCard;
     });
 }
 
@@ -2532,29 +3044,195 @@ function likeProfile(id) {
     }
 }
 
-// VIEW PROFILE
+// VIEW PROFILE - SHOW DETAILED PROFILE
 function viewProfile(id) {
-    let profile = sampleProfiles.find(p => p.id === id);
-    alert(`Name: ${profile.name}\nAge: ${profile.age}\nLocation: ${profile.location}\nQualification: ${profile.qualification}\n\nClick Chat to message.`);
+    try {
+        // Convert ID to number for consistent comparison
+        id = parseInt(id);
+        
+        console.log("Viewing profile ID:", id);
+        
+        // Search in sample profiles first
+        let profile = sampleProfiles.find(p => parseInt(p.id) === id);
+        
+        // If not found in sample, search in user profiles
+        if (!profile) {
+            let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+            profile = allProfiles.find(p => parseInt(p.id) === id);
+        }
+        
+        if (!profile) {
+            console.error("Profile not found with ID:", id);
+            alert("Profile not found!");
+            return;
+        }
+        
+        console.log("Profile found:", profile.name);
+        
+        // Calculate age
+        let age = '-';
+        if (profile.dob) {
+            let birthDate = new Date(profile.dob);
+            let today = new Date();
+            age = today.getFullYear() - birthDate.getFullYear();
+            let monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+        } else if (profile.age) {
+            age = profile.age;
+        }
+        
+        // Get display image
+        let displayImage = profile.photo || profile.image || 'https://via.placeholder.com/400/d32f2f/ffffff?text=' + encodeURIComponent(profile.name || 'Profile');
+        
+        // Populate all detail fields
+        document.getElementById("detailHeaderName").textContent = profile.name || 'Profile';
+        document.getElementById("detailImage").src = displayImage;
+        document.getElementById("detailImage").onerror = function() { this.src = 'https://via.placeholder.com/400/d32f2f/ffffff?text=' + encodeURIComponent(profile.name || 'Profile'); };
+        document.getElementById("detailName").innerHTML = profile.name || 'Name' + (profile.gender ? ' (' + profile.gender + ')' : '');
+        
+        let religion = profile.religion || 'Not specified';
+        let caste = profile.caste || 'Not specified';
+        document.getElementById("detailSubtitle").textContent = religion + ' • ' + caste;
+        
+        // Basic Information
+        document.getElementById("detailAge").textContent = age + ' years';
+        document.getElementById("detailGender").textContent = profile.gender || '-';
+        
+        let location = profile.presentAddress ? profile.presentAddress.split('\n')[0] : (profile.location || '-');
+        document.getElementById("detailLocation").textContent = location;
+        document.getElementById("detailMaritalStatus").textContent = profile.maritalStatus || '-';
+        
+        // Physical Attributes
+        document.getElementById("detailHeight").textContent = profile.height || '-';
+        document.getElementById("detailWeight").textContent = profile.weight || '-';
+        document.getElementById("detailBloodGroup").textContent = profile.bloodGroup || '-';
+        document.getElementById("detailComplexion").textContent = profile.complexion || '-';
+        document.getElementById("detailDiet").textContent = profile.diet || '-';
+        
+        // Education & Occupation
+        document.getElementById("detailQualification").textContent = profile.qualification || '-';
+        document.getElementById("detailOccupation").textContent = profile.job || '-';
+        document.getElementById("detailPlaceOfWork").textContent = profile.placeJob || '-';
+        document.getElementById("detailIncome").textContent = profile.incomeMonth ? '₹' + profile.incomeMonth : '-';
+        
+        // Family Information
+        document.getElementById("detailFatherName").textContent = profile.fatherName || '-';
+        document.getElementById("detailMotherName").textContent = profile.motherName || '-';
+        document.getElementById("detailMotherTongue").textContent = profile.motherTongue || '-';
+        
+        // Astrology
+        document.getElementById("detailGothram").textContent = profile.gothram || '-';
+        document.getElementById("detailStar").textContent = profile.star || '-';
+        document.getElementById("detailRaasi").textContent = profile.raasi || '-';
+        document.getElementById("detailDosham").textContent = profile.dosham || '-';
+        
+        // Contact Information
+        document.getElementById("detailEmail").textContent = profile.email || '-';
+        document.getElementById("detailPhone").textContent = profile.phone || profile.contactNumber || '-';
+        document.getElementById("detailAddress").textContent = profile.permanentAddress || profile.presentAddress || '-';
+        
+        // About
+        document.getElementById("detailAbout").textContent = profile.others || 'No additional information provided';
+        
+        // Store current viewing profile ID for like functionality
+        window.currentViewingProfileId = id;
+        
+        // Update like button state
+        let isLiked = likedProfiles.includes(id);
+        let likeBtn = document.getElementById("detailLikeBtn");
+        if (isLiked) {
+            likeBtn.classList.add('liked');
+            likeBtn.innerHTML = '<i class="fas fa-heart"></i> Liked';
+            likeBtn.style.background = 'linear-gradient(135deg, #d32f2f, #b71c1c)';
+            likeBtn.style.color = 'white';
+            likeBtn.style.borderColor = 'transparent';
+        } else {
+            likeBtn.classList.remove('liked');
+            likeBtn.innerHTML = '<i class="fas fa-heart"></i> Like';
+            likeBtn.style.background = 'white';
+            likeBtn.style.color = '#d32f2f';
+            likeBtn.style.borderColor = '#d32f2f';
+        }
+        
+        console.log("Showing profileDetailPage");
+        // Show the detail page
+        showPage('profileDetailPage');
+        window.scrollTo(0, 0);
+        
+    } catch(error) {
+        console.error("Error in viewProfile:", error);
+        alert("Error loading profile: " + error.message);
+    }
 }
 
-// LOAD MY PROFILES
-function loadMyProfiles() {
-    let userProfileCard = document.getElementById("userProfileCard");
-    let noProfileMessage = document.getElementById("noProfileMessage");
+// LIKE PROFILE FROM DETAIL VIEW
+function likeProfileFromDetail() {
+    let id = window.currentViewingProfileId;
+    if (!id) return;
     
-    // Load user's own profile if exists
-    let storedProfile = JSON.parse(localStorage.getItem("profile"));
-    
-    if (storedProfile && storedProfile.name) {
-        // Show user's profile card
-        userProfileCard.style.display = "block";
-        noProfileMessage.style.display = "none";
+    if (!likedProfiles.includes(id)) {
+        likedProfiles.push(id);
+        localStorage.setItem("likedProfiles", JSON.stringify(likedProfiles));
         
-        // Calculate age from DOB
+        let likeBtn = document.getElementById("detailLikeBtn");
+        likeBtn.classList.add('liked');
+        likeBtn.innerHTML = '<i class="fas fa-heart"></i> Liked';
+        likeBtn.style.background = 'linear-gradient(135deg, #d32f2f, #b71c1c)';
+        likeBtn.style.color = 'white';
+        likeBtn.style.borderColor = 'transparent';
+        
+        alert("✓ Profile liked!");
+    } else {
+        likedProfiles = likedProfiles.filter(p => p !== id);
+        localStorage.setItem("likedProfiles", JSON.stringify(likedProfiles));
+        
+        let likeBtn = document.getElementById("detailLikeBtn");
+        likeBtn.classList.remove('liked');
+        likeBtn.innerHTML = '<i class="fas fa-heart"></i> Like';
+        likeBtn.style.background = 'white';
+        likeBtn.style.color = '#d32f2f';
+        likeBtn.style.borderColor = '#d32f2f';
+        
+        alert("✓ Profile unliked!");
+    }
+    loadProfiles();
+}
+
+// LOAD MY PROFILES - DISPLAYS ALL USER PROFILES
+function loadMyProfiles() {
+    let container = document.getElementById("myPage");
+    let mainContainer = container.querySelector(".main-container");
+    
+    // Get all user profiles
+    let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+    
+    if (allProfiles.length === 0) {
+        // Show no profile message and add first profile button
+        mainContainer.innerHTML = `
+            <div id="noProfileMessage" style="text-align: center; padding: 40px; background: white; border-radius: 12px; margin-bottom: 25px;">
+                <i class="fas fa-user-circle" style="font-size: 50px; color: #d32f2f; margin-bottom: 10px; display: block;"></i>
+                <h5 style="color: var(--primary); margin: 10px 0;">No Profile Yet</h5>
+                <p style="color: #888; margin: 10px 0;">Create your profile to get started and connect with others</p>
+                <button onclick="showPage('profilePage')" class="btn-login" style="margin-top: 15px; max-width: 200px; margin-left: auto; margin-right: auto;">
+                    Create Profile
+                </button>
+            </div>
+        `;
+        return;
+    }
+    
+    // Display all profiles
+    let profilesHTML = `
+        <div style="margin-bottom: 20px;">
+            <h5 style="color: var(--primary); margin-bottom: 15px;">Your Profiles (${allProfiles.length})</h5>
+    `;
+    
+    allProfiles.forEach((profile, index) => {
         let age = "N/A";
-        if (storedProfile.dob) {
-            let birthDate = new Date(storedProfile.dob);
+        if (profile.dob) {
+            let birthDate = new Date(profile.dob);
             let today = new Date();
             age = today.getFullYear() - birthDate.getFullYear();
             let monthDiff = today.getMonth() - birthDate.getMonth();
@@ -2563,30 +3241,67 @@ function loadMyProfiles() {
             }
         }
         
-        // Update user profile card - use first photo or default
-        let primaryPhoto = storedProfile.photo || (storedProfile.photos && storedProfile.photos[0]) || "https://via.placeholder.com/300/d32f2f/ffffff?text=" + encodeURIComponent(storedProfile.gender);
-        document.getElementById("userProfileImage").src = primaryPhoto;
-        document.getElementById("userGenderBadge").textContent = storedProfile.gender;
-        document.getElementById("userProfileName").textContent = storedProfile.name;
-        document.getElementById("userEmail").textContent = storedProfile.email;
-        document.getElementById("userPhone").textContent = storedProfile.phone;
-        document.getElementById("userAge").textContent = age + " yrs";
-        document.getElementById("userLocation").textContent = storedProfile.location || "Not specified";
-        document.getElementById("userQualification").textContent = storedProfile.qualification || "Not specified";
-        document.getElementById("userOccupation").textContent = storedProfile.occupation || "Not specified";
-        document.getElementById("userCaste").textContent = storedProfile.caste || "Not specified";
-        document.getElementById("userAbout").textContent = storedProfile.aboutMe || "Add something about yourself";
+        let profileImage = profile.photo || 'https://via.placeholder.com/300/d32f2f/ffffff?text=' + encodeURIComponent(profile.gender);
+        let allPhotos = profile.photos && profile.photos.length > 0 ? profile.photos : [profileImage];
+        let photoCount = allPhotos.length;
         
-        // Display all photos if available
-        let photoCount = (storedProfile.photos && storedProfile.photos.length) || 0;
-        if (photoCount > 0) {
-            document.getElementById("userProfileImage").title = "Photo 1 of " + photoCount;
-        }
-    } else {
-        // Show no profile message
-        userProfileCard.style.display = "none";
-        noProfileMessage.style.display = "block";
-    }
+        profilesHTML += `
+            <div class="profile-card" style="margin-bottom: 20px;">
+                <div class="profile-image">
+                    <img src="${profileImage}" alt="${profile.name}" onerror="this.src='https://via.placeholder.com/300/d32f2f/ffffff?text=Profile'">
+                    <div class="profile-badge" style="background: #4caf50; color: white;">${photoCount} Photo${photoCount !== 1 ? 's' : ''}</div>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name" style="margin-bottom: 6px;">${profile.name} <span style="font-size: 12px; color: #888;">(${age} yrs)</span></div>
+                    <div class="profile-tagline">${profile.gender} • ${profile.caste || 'Not specified'}</div>
+                    
+                    <div class="profile-details" style="font-size: 12px; margin: 10px 0;">
+                        ${profile.email ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-envelope"></i> <strong>' + profile.email + '</strong></div>' : ''}
+                        ${profile.phone ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-phone"></i> <strong>' + profile.phone + '</strong></div>' : ''}
+                        ${profile.contactNumber ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-phone-alt"></i> ' + profile.contactNumber + '</div>' : ''}
+                        ${profile.dob ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-birthday-cake"></i> ' + new Date(profile.dob).toLocaleDateString() + '</div>' : ''}
+                        ${profile.placeBirth ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-map-marker-alt"></i> ' + profile.placeBirth + '</div>' : ''}
+                        ${profile.height ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-ruler-vertical"></i> ' + profile.height + '</div>' : ''}
+                        ${profile.motherTongue ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-language"></i> ' + profile.motherTongue + '</div>' : ''}
+                        ${profile.maritalStatus ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-heart"></i> ' + profile.maritalStatus + '</div>' : ''}
+                        ${profile.qualification ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-graduation-cap"></i> ' + profile.qualification + '</div>' : ''}
+                        ${profile.job ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-briefcase"></i> ' + profile.job + '</div>' : ''}
+                        ${profile.incomeMonth ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-money-bill"></i> ₹' + profile.incomeMonth + '/month</div>' : ''}
+                        ${profile.presentAddress ? '<div class="detail-row" style="margin: 6px 0;"><i class="fas fa-home"></i> ' + profile.presentAddress.substring(0, 30) + '...</div>' : ''}
+                    </div>
+                    
+                    <div style="background: #f5f5f5; padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 11px;">
+                        <strong>Astrology:</strong> ${profile.raasi || 'Not specified'} • ${profile.star || 'Not specified'} • ${profile.dosham || 'No dosham'}
+                    </div>
+                    
+                    ${profile.others ? '<div style="background: #fff3e0; padding: 8px; border-radius: 6px; margin: 10px 0; font-size: 11px; color: #544; font-style: italic;">' + profile.others.substring(0, 50) + '...</div>' : ''}
+                    
+                    <div class="profile-actions" style="margin-top: 15px; border-top: 1px dashed #e0e0e0; padding-top: 15px;">
+                        <button class="btn-icon" onclick="editExistingProfile(${profile.id})" style="background: #4caf50; color: white; flex: 1; margin-right: 5px; border: none;">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn-icon" onclick="viewFullProfile(${profile.id})" style="flex: 1; margin-right: 5px;">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                        <button class="btn-icon" onclick="deleteProfile(${profile.id})" style="background: #f44336; color: white; flex: 1; border: none;">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    profilesHTML += `
+            </div>
+            <div style="margin-top: 20px; padding: 20px; background: linear-gradient(135deg, #ffd54f 0%, #ffb300 100%); border-radius: 12px; text-align: center;">
+                <button onclick="createAnotherProfile()" class="btn-login" style="background: linear-gradient(135deg, var(--primary) 0%, #b71c1c 100%); margin: 0; width: 100%;">
+                    <i class="fas fa-plus-circle"></i> Add Another Profile
+                </button>
+            </div>
+    `;
+    
+    mainContainer.innerHTML = profilesHTML;
 }
 
 function removeLike(id) {
@@ -2595,52 +3310,208 @@ function removeLike(id) {
     loadMyProfiles();
 }
 
-// PROFILE MANAGEMENT FUNCTIONS
-function buyPlanFromProfile() {
-    showNav("paymentsPage");
+// CREATE ANOTHER PROFILE
+function createAnotherProfile() {
+    // Clear form for new profile
+    document.querySelectorAll(".form-control").forEach(field => {
+        if (field.type !== 'file') field.value = '';
+    });
+    document.querySelectorAll("input[type='radio']").forEach((r, i) => {
+        if (i === 0) r.checked = true;
+        else r.checked = false;
+    });
+    document.querySelectorAll("textarea").forEach(ta => ta.value = '');
+    
+    localStorage.removeItem("editingProfileId");
+    document.getElementById("photoPreview").innerHTML = '';
+    
+    showPage("profilePage");
+    window.scrollTo(0, 0);
+    alert("Create your new profile. All fields will be saved separately.");
 }
 
-function editMyProfile() {
-    // Load current profile data into form
-    if (userProfile) {
-        document.getElementById("name").value = userProfile.name || "";
-        document.getElementById("pphone").value = userProfile.phone || "";
-        document.getElementById("email").value = userProfile.email || "";
-        document.getElementById("gender").value = userProfile.gender || "Select Gender";
-        document.getElementById("dob").value = userProfile.dob || "";
-        document.getElementById("height").value = userProfile.height || "Select Height";
-        document.getElementById("complexion").value = userProfile.complexion || "Select Complexion";
-        document.getElementById("religion").value = userProfile.religion || "Select Religion";
-        document.getElementById("caste").value = userProfile.caste || "";
-        document.getElementById("mother_tongue").value = userProfile.motherTongue || "Select Language";
-        document.getElementById("marriage").value = userProfile.maritalStatus || "Select Status";
-        document.getElementById("qualification").value = userProfile.qualification || "Select Qualification";
-        document.getElementById("occupation").value = userProfile.occupation || "Select Occupation";
-        document.getElementById("location").value = userProfile.location || "Select City";
-        document.getElementById("aboutMe").value = userProfile.aboutMe || "";
+// EDIT EXISTING PROFILE
+function editExistingProfile(profileId) {
+    let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+    let profileToEdit = allProfiles.find(p => p.id === profileId);
+    
+    if (!profileToEdit) {
+        alert("Profile not found!");
+        return;
+    }
+    
+    // Store the ID of profile being edited
+    localStorage.setItem("editingProfileId", profileId);
+    
+    // Load form with existing data
+    document.getElementById("name").value = profileToEdit.name || "";
+    document.getElementById("pphone").value = profileToEdit.phone || "";
+    document.getElementById("email").value = profileToEdit.email || "";
+    document.getElementById("gender").value = profileToEdit.gender || "";
+    document.getElementById("dob").value = profileToEdit.dob || "";
+    document.getElementById("birthHour").value = profileToEdit.birthHour || "";
+    document.getElementById("birthMin").value = profileToEdit.birthMin || "";
+    document.getElementById("birthAmPm").value = profileToEdit.birthAmPm || "AM";
+    document.getElementById("placeBirth").value = profileToEdit.placeBirth || "";
+    document.getElementById("nativity").value = profileToEdit.nativity || "";
+    
+    document.getElementById("height").value = profileToEdit.height || "";
+    document.getElementById("weight").value = profileToEdit.weight || "";
+    document.getElementById("bloodGroup").value = profileToEdit.bloodGroup || "";
+    document.getElementById("mother_tongue").value = profileToEdit.motherTongue || "";
+    document.getElementById("marriage").value = profileToEdit.maritalStatus || "";
+    document.getElementById("caste").value = profileToEdit.caste || "";
+    document.getElementById("subCaste").value = profileToEdit.subCaste || "";
+    
+    document.getElementById("fatherName").value = profileToEdit.fatherName || "";
+    document.getElementById("fatherJob").value = profileToEdit.fatherJob || "";
+    document.getElementById("motherName").value = profileToEdit.motherName || "";
+    document.getElementById("motherJob").value = profileToEdit.motherJob || "";
+    
+    if (profileToEdit.diet) {
+        document.querySelector('input[name="diet"][value="' + profileToEdit.diet + '"]').checked = true;
+    }
+    if (profileToEdit.disability) {
+        document.querySelector('input[name="disability"][value="' + profileToEdit.disability + '"]').checked = true;
+    }
+    if (profileToEdit.complexion) {
+        document.querySelector('input[name="complexion"][value="' + profileToEdit.complexion + '"]').checked = true;
+    }
+    
+    document.getElementById("qualification").value = profileToEdit.qualification || "";
+    document.getElementById("job").value = profileToEdit.job || "";
+    document.getElementById("placeJob").value = profileToEdit.placeJob || "";
+    document.getElementById("incomeMonth").value = profileToEdit.incomeMonth || "";
+    
+    document.getElementById("gothram").value = profileToEdit.gothram || "";
+    document.getElementById("star").value = profileToEdit.star || "";
+    document.getElementById("raasi").value = profileToEdit.raasi || "";
+    document.getElementById("padam").value = profileToEdit.padam || "";
+    document.getElementById("laknam").value = profileToEdit.laknam || "";
+    document.getElementById("dosham").value = profileToEdit.dosham || "";
+    
+    document.getElementById("partnerQualification").value = profileToEdit.partnerQualification || "";
+    document.getElementById("partnerJob").value = profileToEdit.partnerJob || "";
+    document.getElementById("partnerIncomeMonth").value = profileToEdit.partnerIncomeMonth || "";
+    document.getElementById("partnerAgeFrom").value = profileToEdit.partnerAgeFrom || "";
+    document.getElementById("partnerAgeTo").value = profileToEdit.partnerAgeTo || "";
+    document.getElementById("partnerDiet").value = profileToEdit.partnerDiet || "Vegetarian";
+    document.getElementById("partnerHoroscopeRequired").value = profileToEdit.partnerHoroscopeRequired || "No";
+    document.getElementById("partnerMaritalStatus").value = profileToEdit.partnerMaritalStatus || "Unmarried";
+    document.getElementById("partnerCaste").value = profileToEdit.partnerCaste || "Any";
+    document.getElementById("partnerSubCaste").value = profileToEdit.partnerSubCaste || "Any";
+    document.getElementById("partnerOtherRequirement").value = profileToEdit.partnerOtherRequirement || "";
+    
+    document.getElementById("permanentAddress").value = profileToEdit.permanentAddress || "";
+    document.getElementById("presentAddress").value = profileToEdit.presentAddress || "";
+    document.getElementById("contactPerson").value = profileToEdit.contactPerson || "";
+    document.getElementById("contactNumber").value = profileToEdit.contactNumber || "";
+    document.getElementById("others").value = profileToEdit.others || "";
+    
+    showPage("profilePage");
+    window.scrollTo(0, 0);
+    alert("Edit your profile and save to update. This will replace the previous version.");
+}
+
+// VIEW FULL PROFILE
+function viewFullProfile(profileId) {
+    let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+    let profile = allProfiles.find(p => p.id === profileId);
+    
+    if (!profile) return;
+    
+    let details = `
+NAME: ${profile.name}
+AGE: ${new Date().getFullYear() - new Date(profile.dob).getFullYear()} years
+GENDER: ${profile.gender}
+EMAIL: ${profile.email}
+PHONE: ${profile.phone}
+CONTACT: ${profile.contactNumber}
+
+PERSONAL INFO:
+- DOB: ${profile.dob}
+- Height: ${profile.height}
+- Weight: ${profile.weight}
+- Complexion: ${profile.complexion}
+- Blood Group: ${profile.bloodGroup}
+
+FAMILY:
+- Father: ${profile.fatherName} (${profile.fatherJob}) - ${profile.fatherAlive}
+- Mother: ${profile.motherName} (${profile.motherJob}) - ${profile.motherAlive}
+
+EDUCATION & WORK:
+- Qualification: ${profile.qualification}
+- Occupation: ${profile.job}
+- Work Location: ${profile.placeJob}
+- Income: ₹${profile.incomeMonth}/month
+
+ASTROLOGY:
+- Caste: ${profile.caste}
+- Star: ${profile.star}
+- Raasi: ${profile.raasi}
+
+CONTACT DETAILS:
+${profile.presentAddress ? '- Present: ' + profile.presentAddress + '\n' : ''}
+${profile.permanentAddress ? '- Permanent: ' + profile.permanentAddress : ''}
+    `;
+    
+    alert(details);
+}
+
+// DELETE PROFILE
+function deleteProfile(profileId) {
+    if (confirm("Are you sure you want to delete this profile? This action cannot be undone.")) {
+        let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+        allProfiles = allProfiles.filter(p => p.id !== profileId);
         
-        showPage("profilePage");
-        window.scrollTo(0, 0);
-        alert("Edit your profile and save to update");
+        localStorage.setItem("userProfiles", JSON.stringify(allProfiles));
+        
+        if (allProfiles.length > 0) {
+            localStorage.setItem("currentProfile", JSON.stringify(allProfiles[0]));
+        } else {
+            localStorage.removeItem("currentProfile");
+        }
+        
+        alert("Profile deleted successfully");
+        loadMyProfiles();
+    }
+}
+
+// EDIT MY PROFILE (OLD FUNCTION - KEEPS FOR COMPATIBILITY)
+function editMyProfile() {
+    let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+    if (allProfiles.length > 0) {
+        editExistingProfile(allProfiles[0].id);
     } else {
         alert("No profile found. Please create one first.");
         showPage("profilePage");
     }
 }
 
+// REMOVE MY PROFILE (OLD FUNCTION - KEEPS FOR COMPATIBILITY)
 function removeMyProfile() {
-    if (confirm("Are you sure you want to remove your profile? This action cannot be undone.")) {
-        localStorage.removeItem("profile");
-        userProfile = null;
-        likedProfiles = [];
-        localStorage.removeItem("likedProfiles");
-        alert("Profile removed successfully");
-        loadMyProfiles();
+    let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+    if (allProfiles.length > 0) {
+        deleteProfile(allProfiles[0].id);
     }
 }
 
-// MESSAGES - REMOVED
-// Chat and messaging features have been removed
+// PROFILE MANAGEMENT - Additional Functions
+function buyPlanFromProfile() {
+    showNav("paymentsPage");
+}
+
+// Edit profile from home page
+function editProfile(profileId) {
+    let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+    let profileToEdit = allProfiles.find(p => p.id === profileId);
+    
+    if (profileToEdit) {
+        editExistingProfile(profileId);
+    } else {
+        alert("Profile not found!");
+    }
+}
 
 // PAYMENT
 function buyPlan(plan) {
@@ -2682,15 +3553,20 @@ window.addEventListener('load', () => {
     
     if (phone) {
         likedProfiles = JSON.parse(localStorage.getItem("likedProfiles")) || [];
-        userProfile = JSON.parse(localStorage.getItem("profile"));
+        
+        // Load user profiles
+        let allProfiles = JSON.parse(localStorage.getItem("userProfiles")) || [];
+        if (allProfiles.length > 0) {
+            userProfile = JSON.parse(localStorage.getItem("currentProfile")) || allProfiles[0];
+        }
+        
         let membership = localStorage.getItem("membership");
         
         if (membership) {
             document.getElementById("currentStatus").textContent = `${membership} Member`;
-            document.getElementById("userStatus").textContent = membership;
         }
         
-        // Load user profile card when app starts
+        // Load user profile cards when app starts
         loadMyProfiles();
         
         showPage("homePage");
